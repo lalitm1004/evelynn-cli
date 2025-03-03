@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs, path::Path};
+use std::{collections::HashMap, fs};
 
 use serde::Deserialize;
 
@@ -44,7 +44,9 @@ pub struct SshServer {
 }
 
 pub fn read_config() -> Result<Config, Box<dyn std::error::Error>> {
-    let path = Path::new("evelynn_cli_config.toml");
+    let mut path = dirs::home_dir().ok_or("failed to get home directory")?;
+    path.push(".config/evelynn-cli/config.toml");
+
     let contents = fs::read_to_string(path)?;
     let config = toml::from_str(&contents)?;
     Ok(config)
