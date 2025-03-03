@@ -1,0 +1,15 @@
+[ssh]
+
+[ssh.derive.appwrite.server1]
+GET = ""
+X-Appwrite-Project = ""
+X-Appwrite-Key = ""
+port = ""
+username = ""
+password = ""
+
+[ssh.server2]
+ip = ""
+port = ""
+username = ""
+password = ""
